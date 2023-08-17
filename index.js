@@ -52,9 +52,17 @@ const pizzas = [
  const buscarPizzaButton = document.getElementById("buscarPizza")
  const contenedorPizza = document.getElementById("contenedorPizza")
 
+
+
  buscarPizzaButton.addEventListener("click", function() {
   const numeroIngresado = parseInt(numeroPizzaInput.value)
   const pizzaEncontrada = pizzas.find(pizza => pizza.id === numeroIngresado)
+
+  if (isNaN(numeroIngresado)) {
+    contenedorPizza.textContent = "Debes colocar un número.";
+    return;
+    
+  }
 
   if(pizzaEncontrada){
     const cardPizza = document.createElement ("div")
@@ -79,4 +87,6 @@ const pizzas = [
   }else{
     contenedorPizza.innerHTML = "No existe una pizza con ese id"
   }
- })
+
+  
+})
